@@ -102,11 +102,13 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
-GPT_SECRETS = st.secrets["gpt_secret"]
+#GPT_SECRETS = st.secrets["gpt_secret"]
+GPT_SECRETS = os.getenv('GPT_SECRET')
+open_ai_gpt3.openai.api_key = GPT_SECRETS
+
 SIDE_BAR_QUESTION_TAB_1 = 'question_dict_normal'
 SIDE_BAR_GENERATED_DATASET_INPUT_1 = 'generated_normal'
 SIDE_BAR_PAST_DATASET_INPUT_1 = 'past_normal'
-open_ai_gpt3.openai.api_key = GPT_SECRETS
 
 ############################################ New-Code ########################################
 
@@ -206,9 +208,9 @@ def load_data_from_json(folder_path):
     return user_data
 
 
-os.environ['OPENAI_API_KEY'] = GPT_SECRETS
+# os.environ['OPENAI_API_KEY'] = GPT_SECRETS
+# openai.api_key = os.getenv("OPENAI_API_KEY")
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
 user_data = load_data_from_json('./user-data')
 image = Image.open(user_data['User Photo'])
 
