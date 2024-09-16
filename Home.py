@@ -41,7 +41,7 @@ print('############ New - Run ##################')
 st.set_page_config(page_title="Chat Doc Application - GitHub Copilot", page_icon="assets/images/favicon.png", layout="wide", initial_sidebar_state='collapsed')
 data_copilot_url = 'http://localhost:8501'
 know_your_data_url = 'http://localhost:8501/Know_Your_Data'
-IMAGE_PATH = '/Users/apple/Documents/Priyesh/Repositories/Explicit-Knowledge-Copilot-Chat/assets/chat_banner.png'
+IMAGE_PATH = './assets/chat_banner.png'
 
 
 st.markdown(f"""
