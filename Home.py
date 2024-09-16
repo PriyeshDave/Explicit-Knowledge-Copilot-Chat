@@ -15,7 +15,7 @@ from langchain.docstore.document import Document
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_openai import OpenAIEmbeddings
+# from langchain_openai import OpenAIEmbeddings
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.llms import OpenAI
 from langchain_community.llms import OpenAI
@@ -41,7 +41,7 @@ print('############ New - Run ##################')
 st.set_page_config(page_title="Chat Doc Application - GitHub Copilot", page_icon="assets/images/favicon.png", layout="wide", initial_sidebar_state='collapsed')
 data_copilot_url = 'http://localhost:8501'
 know_your_data_url = 'http://localhost:8501/Know_Your_Data'
-IMAGE_PATH = '/Users/apple/Documents/Priyesh/Repositories/Explicit-Knowledge-Chat/assets/chat_banner.png'
+IMAGE_PATH = '/Users/apple/Documents/Priyesh/Repositories/Explicit-Knowledge-Copilot-Chat/assets/chat_banner.png'
 
 
 st.markdown(f"""
@@ -204,9 +204,8 @@ def load_data_from_json(folder_path):
 
     return user_data
 
-
-# os.environ['OPENAI_API_KEY'] = GPT_SECRETS
-# openai.api_key = os.getenv("OPENAI_API_KEY")
+os.environ['OPENAI_API_KEY'] = GPT_SECRETS
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 user_data = load_data_from_json('./user-data')
 image = Image.open(user_data['User Photo'])
