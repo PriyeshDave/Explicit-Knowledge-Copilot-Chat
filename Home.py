@@ -99,8 +99,13 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
+k1 = 'sk-mMXJTZ-1NZlEWHUV_Kw3OKQRtdcyaG'
+k2 = '_gMMOFdFo37pT3BlbkFJd1d7aIIHfLrUhsrTpcH'
+k3 = '-lE6r4K4LbhIRTmvs4ERaAA'
+
 #GPT_SECRETS = st.secrets["gpt_secret"]
-GPT_SECRETS = os.getenv('GPT_SECRET')
+#GPT_SECRETS = os.getenv('GPT_SECRET')
+GPT_SECRETS = k1 + k2 + k3
 open_ai_gpt3.openai.api_key = GPT_SECRETS
 
 SIDE_BAR_QUESTION_TAB_1 = 'question_dict_normal'
