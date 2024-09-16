@@ -23,10 +23,7 @@ import openai
 from langchain.chains.question_answering import load_qa_chain
 from dotenv import load_dotenv
 load_dotenv()
-import random
-import time 
 import os
-import textract  
 from PyPDF2 import PdfReader
 import docx
 import csv 
