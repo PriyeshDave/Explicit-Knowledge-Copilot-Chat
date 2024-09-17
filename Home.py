@@ -280,7 +280,7 @@ st.markdown(
 
 vectordb_path = './vector_db/faiss_index'
 
-write_to_vectordb(vectordb_path,doc_to_vect)
+#write_to_vectordb(vectordb_path,doc_to_vect)
 
 faiss_index = read_from_vectordb(vectordb_path)
 
