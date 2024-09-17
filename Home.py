@@ -39,8 +39,9 @@ print('############ New - Run ##################')
 
 # if authentication_status:
 st.set_page_config(page_title="Chat Doc Application - GitHub Copilot", page_icon="assets/images/favicon.png", layout="wide", initial_sidebar_state='collapsed')
-data_copilot_url = 'http://localhost:8501'
-know_your_data_url = 'http://localhost:8501/Know_Your_Data'
+EXPLICIT_KNOWLEDGE_COPILOT_URL = 'https://explicit-knowledge-copilot.streamlit.app'
+KNOW_YOUR_DATA_URL = 'https://explicit-knowledge-copilot.streamlit.app/Know_Your_Data'
+
 IMAGE_PATH = './assets/chat_banner.png'
 
 
@@ -59,10 +60,10 @@ st.markdown(f"""
     </style>
     <div class="top-right">
         <div class="button-container">
-            <a href="{data_copilot_url}" target="_blank">
+            <a href="{EXPLICIT_KNOWLEDGE_COPILOT_URL}" target="_blank">
                 <button class="button"> Explicit Knowledge Copilot </button>
             </a>
-            <a href="{know_your_data_url}" target="_blank">
+            <a href="{KNOW_YOUR_DATA_URL}" target="_blank">
                 <button class="button"> Know Your Data </button>
             </a>
         </div>
