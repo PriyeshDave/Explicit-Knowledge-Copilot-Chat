@@ -212,10 +212,6 @@ def load_data_from_json(folder_path):
 os.environ['OPENAI_API_KEY'] = GPT_SECRETS
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-user_data = load_data_from_json('./user-data')
-image = Image.open(user_data['User Photo'])
-
-
 def write_to_vectordb(path,texts=doc_to_vect):
     llm=OpenAI(openai_api_key=os.getenv("OPENAI_API_KEY"),temperature=0.5)
     embeddings = OpenAIEmbeddings()
@@ -257,28 +253,30 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-with st.sidebar:
+# user_data = load_data_from_json('./user-data')
+# image = Image.open(user_data['User Photo'])
+# with st.sidebar:
 
-    # Center-aligned headers
-    name_html = "<h1 style='text-align: center;'>"+user_data['Name']+"</h1>"
-    st.markdown(name_html, unsafe_allow_html=True)
+#     # Center-aligned headers
+#     name_html = "<h1 style='text-align: center;'>"+user_data['Name']+"</h1>"
+#     st.markdown(name_html, unsafe_allow_html=True)
     
-    st.sidebar.image(image,width=200)
+#     st.sidebar.image(image,width=200)
 
-    st.sidebar.subheader('Email')
-    st.sidebar.write(user_data['Email'])
+#     st.sidebar.subheader('Email')
+#     st.sidebar.write(user_data['Email'])
 
-    st.sidebar.subheader('LinkedIn')
-    st.sidebar.write(user_data['Entered Lkdn URL'])
+#     st.sidebar.subheader('LinkedIn')
+#     st.sidebar.write(user_data['Entered Lkdn URL'])
 
-    st.sidebar.subheader('GitHub')
-    st.sidebar.write(user_data['Entered Git URL'])
+#     st.sidebar.subheader('GitHub')
+#     st.sidebar.write(user_data['Entered Git URL'])
 
-    st.sidebar.subheader('Phone')
-    st.sidebar.write(user_data['Phone'])
+#     st.sidebar.subheader('Phone')
+#     st.sidebar.write(user_data['Phone'])
     
-    st.sidebar.subheader('Adderss')
-    st.sidebar.write(user_data['Address'])
+#     st.sidebar.subheader('Adderss')
+#     st.sidebar.write(user_data['Address'])
 
 vectordb_path = './vector_db/faiss_index'
 
