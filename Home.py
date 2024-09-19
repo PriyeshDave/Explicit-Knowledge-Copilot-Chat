@@ -38,9 +38,15 @@ warnings.filterwarnings("ignore", message="Lang Chain Version Update Warning.. "
 print('############ New - Run ##################')
 
 # if authentication_status:
+
 st.set_page_config(page_title="Chat Doc Application - GitHub Copilot", page_icon="assets/images/favicon.png", layout="wide", initial_sidebar_state='collapsed')
-EXPLICIT_KNOWLEDGE_COPILOT_URL = 'https://explicit-knowledge-copilot.streamlit.app'
-KNOW_YOUR_DATA_URL = 'https://explicit-knowledge-copilot.streamlit.app/Know_Your_Data'
+prod_flag = False
+if prod_flag:
+    EXPLICIT_KNOWLEDGE_COPILOT_URL = 'https://explicit-knowledge-copilot.streamlit.app'
+    KNOW_YOUR_DATA_URL = 'https://explicit-knowledge-copilot.streamlit.app/Know_Your_Data'
+else:
+    EXPLICIT_KNOWLEDGE_COPILOT_URL = 'http://localhost:8501'
+    KNOW_YOUR_DATA_URL = 'http://localhost:8501/Know_Your_Data'
 
 IMAGE_PATH = './assets/chat_banner.png'
 
@@ -99,10 +105,9 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-
-k1 = 'sk-mMXJTZ-1NZlEWHUV_Kw3OKQRtdcyaG'
-k2 = '_gMMOFdFo37pT3BlbkFJd1d7aIIHfLrUhsrTpcH'
-k3 = '-lE6r4K4LbhIRTmvs4ERaAA'
+k1 = 'sk-IM4Ae4gJyGA3bMXMCFAQm2CVzermmzfd_5QDk'
+k2 = '-VAgWT3BlbkFJuSVlSjts3iB6GpyPFleJad48j3f'
+k3 = '_RGubRWLfEKkk8A'
 GPT_SECRETS = k1 + k2 + k3
 
 #GPT_SECRETS = st.secrets["gpt_secret"]
