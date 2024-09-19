@@ -494,23 +494,23 @@ with col_main_2:
 
     # Create the sample questions columns
     with col1:
-        if st.button(sample_question_1):
+        if st.button(sample_question_1, key='1'):
             question = sample_question_1.lower()
         
     with col2:
-        if st.button(sample_question_2):
+        if st.button(sample_question_2, key='2'):
             question = sample_question_2.lower()
 
     with col3:
-        if st.button(sample_question_3):
+        if st.button(sample_question_3, key='3'):
             question = sample_question_3.lower()
 
     with col4:
-        if st.button(sample_question_4):
+        if st.button(sample_question_4, key='4'):
             question = sample_question_4.lower()
 
     with col5:
-        if st.button(sample_question_5):
+        if st.button(sample_question_5, key='5'):
             question = sample_question_5.lower()
 
     st.markdown("Type in your question below (Press Ctrl+Enter to key in question):")
