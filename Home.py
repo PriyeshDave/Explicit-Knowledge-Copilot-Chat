@@ -1,6 +1,4 @@
 import streamlit as st
-# from streamlit_elements import elements, mui
-# from streamlit_elements import dashboard
 from streamlit_chat import message
 import streamlit_toggle as tog
 import json
@@ -33,13 +31,6 @@ import warnings
 warnings.filterwarnings("ignore", message="Lang Chain Version Update Warning.. ")
 
 
-############ New - Imports ##################
-
-print('############ New - Run ##################')
- 
-# if authentication_status:
-
-st.set_page_config(page_title="Chat Doc Application - GitHub Copilot", page_icon="assets/images/favicon.png", layout="wide", initial_sidebar_state='collapsed')
 prod_flag = True
 if prod_flag:
     EXPLICIT_KNOWLEDGE_COPILOT_URL = 'https://explicit-knowledge-copilot.streamlit.app'
@@ -49,8 +40,10 @@ else:
     KNOW_YOUR_DATA_URL = 'http://localhost:8501/Know_Your_Data'
 
 IMAGE_PATH = './assets/chat_banner.png'
+GPT_SECRETS = st.secrets["api"]["OPENAI_API_KEY"]
+open_ai_gpt3.openai.api_key = GPT_SECRETS
 
-
+st.set_page_config(page_title="Chat Doc Application - GitHub Copilot", page_icon="assets/images/favicon.png", layout="wide", initial_sidebar_state='collapsed')
 st.markdown(f"""
     <style>
     .top-right {{
@@ -81,7 +74,6 @@ st.markdown('##')
 col_main_1, col_main_2, col_main_3 = st.columns([1,5,1])
 
 with col_main_2:
-    # st.markdown("# Chat Doc Application - GitHub Copilot ")
     st.markdown("<h1 style='text-align: center;'> Data-Driven Knowledge </h1>", unsafe_allow_html=True)
     st.markdown("<h1 style='text-align: center;'>  with Inteligent Chat </h1>", unsafe_allow_html=True)
     st.markdown(
@@ -104,16 +96,6 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-# k1 = 'sk-IM4Ae4gJyGA3bMXMCFAQm2CVzermmzfd_5QDk'
-# k2 = '-VAgWT3BlbkFJuSVlSjts3iB6GpyPFleJad48j3f'
-# k3 = '_RGubRWLfEKkk8A'
-# GPT_SECRETS = k1 + k2 + k3
-
-GPT_SECRETS = st.secrets["api"]["OPENAI_API_KEY"]
-#GPT_SECRETS = st.secrets["gpt_secret"]
-#GPT_SECRETS = os.getenv('GPT_SECRET')
-open_ai_gpt3.openai.api_key = GPT_SECRETS
 
 SIDE_BAR_QUESTION_TAB_1 = 'question_dict_normal'
 SIDE_BAR_GENERATED_DATASET_INPUT_1 = 'generated_normal'
