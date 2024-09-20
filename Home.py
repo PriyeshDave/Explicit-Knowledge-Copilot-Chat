@@ -40,8 +40,8 @@ else:
     KNOW_YOUR_DATA_URL = 'http://localhost:8501/Know_Your_Data'
 
 IMAGE_PATH = './assets/chat_banner.png'
-GPT_SECRETS = st.secrets["api_keys"]["OPENAI_API_KEY"]
-open_ai_gpt3.openai.api_key = GPT_SECRETS
+OPENAI_API_KEY = st.secrets["api_keys"]["OPENAI_API_KEY"]
+open_ai_gpt3.openai.api_key = OPENAI_API_KEY
 
 st.set_page_config(page_title="Chat Doc Application - GitHub Copilot", page_icon="assets/images/favicon.png", layout="wide", initial_sidebar_state='collapsed')
 st.markdown(f"""
@@ -198,7 +198,7 @@ def load_data_from_json(folder_path):
 
     return user_data
 
-os.environ['OPENAI_API_KEY'] = GPT_SECRETS
+os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def write_to_vectordb(path,texts=doc_to_vect):
