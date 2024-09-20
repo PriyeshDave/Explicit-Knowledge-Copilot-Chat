@@ -40,7 +40,7 @@ else:
     KNOW_YOUR_DATA_URL = 'http://localhost:8501/Know_Your_Data'
 
 IMAGE_PATH = './assets/chat_banner.png'
-GPT_SECRETS = st.secrets["api"]["OPENAI_API_KEY"]
+GPT_SECRETS = st.secrets["api_keys"]["OPENAI_API_KEY"]
 open_ai_gpt3.openai.api_key = GPT_SECRETS
 
 st.set_page_config(page_title="Chat Doc Application - GitHub Copilot", page_icon="assets/images/favicon.png", layout="wide", initial_sidebar_state='collapsed')
